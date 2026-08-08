@@ -1,8 +1,8 @@
 import random
 import os # nayi line
 
-def load_highscore(level):
-    if os.path.exists("highscore.txt"):
+def load_highscore( level ):
+    if os.path.exists( "highscore.txt" ):
         with open("highscore.txt", "r") as f:
             for line in f:
                 name, score = line.strip().split(",")
@@ -23,7 +23,7 @@ def save_highscore(level, score):
 
     with open("highscore.txt", "w") as f:
         for name, s in highscores.items():
-            f.write(f"{name},{s}\n")
+            f.write(f"{name} , {s}\n")
 
 
 def play_game(max_number, attempts):
@@ -55,15 +55,15 @@ def play_game(max_number, attempts):
              attempts -= 1
              score -= points_per_wrong
              score = max(0, score)
-             count_A+=1
+             count_A += 1
              
-        if guess>secret:
+        if guess > secret:
             print(f"Choose small⬇️ nomber, now only {attempts} chances are remaining.\nYour score is {score}, because this was your {count_A} attempt ")
         
         else:       
             print(f"Choose grester⬆️ nomber, now only {attempts} chances are remaining.\nYour score is {score} because this was your {count_A} attempt")
         
-    if attempts==0 and secret != guess:
+    if attempts == 0 and secret != guess:
         print(f"Sorry, Game over. The nomber was: {secret}\nYour score is {score} because this was your {count_A} last attempt")
 while True:             
     try:
